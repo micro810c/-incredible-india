@@ -4,9 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:,">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Incredible India — Discover India Through Its People</title>
 <meta name="description" content="Connect People. Discover India. Experience the World. A community connecting visitors with local hosts and guides across India. Phase 1 preview.">
+<meta property="og:title" content="Incredible India — Discover India Through Its People">
+<meta property="og:description" content="Connect People. Discover India. Experience the World. A community connecting visitors with local hosts and guides across India. Phase 1 preview.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&amp;fit=crop&amp;w=1600&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Incredible India — Discover India Through Its People">
+<meta name="twitter:description" content="Connect People. Discover India. Experience the World. A community connecting visitors with local hosts and guides across India. Phase 1 preview.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&amp;fit=crop&amp;w=1600&amp;q=80">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -35,6 +45,38 @@ section{padding:64px 0}
 .btn-navy{background:var(--navy);color:#fff}.btn-outline{border-color:var(--navy);color:var(--navy);background:transparent}
 @media (prefers-color-scheme: dark){.btn-outline{border-color:#F0A35E;color:#F0A35E}}
 .btn-ghost{background:var(--surface);border-color:var(--line);color:var(--ink)}
+/* Button motion: hover lift + soft shadow + radial splash */
+.btn{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease}
+.btn::after{content:"";position:absolute;left:50%;top:50%;width:220%;padding-top:220%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.5) 0%,rgba(255,255,255,0) 62%);transform:translate(-50%,-50%) scale(.25);opacity:0;transition:transform .55s ease,opacity .55s ease;pointer-events:none}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(15,35,64,.18)}
+.btn:hover::after{transform:translate(-50%,-50%) scale(1);opacity:1}
+.btn:active{transform:translateY(0)}
+.btn-navy::after,.btn-outline::after{background:radial-gradient(circle,rgba(230,126,34,.4) 0%,rgba(230,126,34,0) 62%)}
+/* Inline SVG icons */
+.ic{width:20px;height:20px;flex:none;vertical-align:-4px}
+.ic-sm{width:15px;height:15px;vertical-align:-2px;color:var(--saffron2)}
+.step-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:#FDEBD3;color:var(--saffron2);margin-bottom:14px}
+@media (prefers-color-scheme: dark){.step-ic{background:rgba(230,126,34,.18);color:#F0A35E}}
+.mcb-ic{color:var(--saffron);vertical-align:-4px;margin-right:6px}
+.form-ic{color:var(--saffron2);vertical-align:-4px;margin-right:6px}
+/* Hero highlight strip */
+.highlights{background:var(--warm);border-bottom:1px solid var(--line)}
+.highlights .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:18px;padding-bottom:18px}
+@media(max-width:900px){.highlights .wrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.highlights .wrap{grid-template-columns:1fr}}
+.hl{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;color:var(--navy)}
+@media (prefers-color-scheme: dark){.hl{color:#F0A35E}}
+.hl .hl-ic{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--saffron)}
+/* Gentle fade-in on scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .btn{transition:none}
+  .btn:hover{transform:none;box-shadow:none}
+  .btn::after{display:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
 /* Nav */
 header{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
@@ -115,6 +157,9 @@ header{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter
 .host{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
 .sample-label{display:block;text-align:center;background:#FDEBD3;color:#8A4B08;font-size:12px;font-weight:800;letter-spacing:.03em;padding:8px 10px;border:1.5px dashed #B96A12;border-radius:8px;margin-bottom:14px}
 .avatar{width:56px;height:56px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:19px;margin-bottom:12px}
+.host-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.host-ic{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:12px;background:#FDEBD3;color:var(--saffron2)}
+@media (prefers-color-scheme: dark){.host-ic{background:rgba(230,126,34,.18);color:#F0A35E}}
 .host h3{font-size:19px}
 .host .meta{color:var(--muted);font-size:14px;margin:4px 0 10px}
 .type-badge{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--green-bg);color:var(--green);margin-bottom:10px}
@@ -187,7 +232,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px
       <a href="#earn">Become a Host / Guide</a>
       <a href="#how">How It Works</a>
       <a href="#community">Community</a>
-      <a href="#guide" class="cta">Join Free</a>
+      <a href="#guide" class="cta"><svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:inherit;margin-right:6px"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>Join Free</a>
     </nav>
   </div>
 </header>
@@ -200,12 +245,22 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px
     <h1>Discover India Through Its People</h1>
     <p>Connect with local hosts, explore authentic experiences, meet new friends, and discover the incredible diversity of India.</p>
     <div class="hero-btns">
-      <a class="btn btn-saffron" href="#guide">Get the Free Guide</a>
-      <a class="btn" style="background:#fff;color:var(--navy)" href="#hosts">Find a Local Friend</a>
+      <a class="btn btn-saffron" href="#guide"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Get the Free Guide</a>
+      <a class="btn" style="background:#fff;color:var(--navy)" href="#hosts"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Find a Local Friend</a>
     </div>
     <p class="hero-note">Not a hotel site. Not a travel agency. A community of people who open their cities — and their homes — to each other.</p>
   </div></div></div>
 </section>
+
+<!-- 1b. HIGHLIGHTS -->
+<div class="highlights">
+  <div class="wrap">
+    <div class="hl"><span class="hl-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>Free 7-mistakes guide</div>
+    <div class="hl"><span class="hl-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>Free 20-min India-Ready Call</div>
+    <div class="hl"><span class="hl-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>15 destinations across India</div>
+    <div class="hl"><span class="hl-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Hosts &amp; guides across India</div>
+  </div>
+</div>
 
 <!-- 2. MCB -->
 <section class="mcb" id="guide">
@@ -213,7 +268,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px
     <div class="sec-head"><h2>Start free: the guide + a 20-minute India-Ready Call</h2><p style="color:#B9C7DE">Before you book anything, know what actually trips first-time visitors up — and how a local friend quietly prevents all of it.</p></div>
     <div class="mcb-grid">
       <div>
-        <h3 style="color:#fff;font-size:22px">Free guide: “7 Mistakes First-Time Visitors Make in India — And How a Local Friend Saves You From All 7”</h3>
+        <h3 style="color:#fff;font-size:22px"><svg class="ic mcb-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Free guide: “7 Mistakes First-Time Visitors Make in India — And How a Local Friend Saves You From All 7”</h3>
         <ul class="mistakes">
           <li><span class="n">1</span><div><b>Paying tourist prices for everything</b><span>Without a local, the first price you hear is rarely the real price.</span></div></li>
           <li><span class="n">2</span><div><b>Trying to see too much, too fast</b><span>India rewards slow travel. Rushed itineraries burn people out.</span></div></li>
@@ -223,10 +278,10 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px
           <li><span class="n">6</span><div><b>Missing the real India between the monuments</b><span>Families, festivals, villages and home food never make it into package tours.</span></div></li>
           <li><span class="n">7</span><div><b>Having no one to call when plans break</b><span>A local friend turns a problem into a phone call, not a crisis.</span></div></li>
         </ul>
-        <p style="color:#B9C7DE;font-size:14px">Also included free: a 20-minute <b style="color:#fff">India-Ready Call</b> and a free itinerary check — tell us your route, we flag what to fix before you travel.</p>
+        <p style="color:#B9C7DE;font-size:14px"><svg class="ic mcb-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Also included free: a 20-minute <b style="color:#fff">India-Ready Call</b> and a free itinerary check — tell us your route, we flag what to fix before you travel.</p>
       </div>
       <div class="form-card">
-        <h3>Get the free guide</h3>
+        <h3><svg class="ic form-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Get the free guide</h3>
         <p>Fill this in and we’ll note your request. This is a Phase 1 preview form.</p>
         <form id="mcbForm">
           <div class="field"><label for="fName">Your name</label><input id="fName" required autocomplete="name" placeholder="Your full name"></div>
@@ -236,7 +291,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px
             <select id="fMonth" required><option value="">Choose a month…</option><option>December 2026</option><option>January 2027</option><option>February 2027</option><option>March 2027</option><option>Later / not sure yet</option></select></div>
           <div class="field"><label for="fInterest">What interests you most?</label>
             <select id="fInterest" required><option value="">Choose one…</option><option>Heritage &amp; history</option><option>Food</option><option>Mountains &amp; nature</option><option>Spiritual places</option><option>Villages &amp; family life</option><option>Adventure</option></select></div>
-          <button class="btn btn-saffron" type="submit" style="width:100%">Send me the free guide</button>
+          <button class="btn btn-saffron" type="submit" style="width:100%"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:8px"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>Send me the free guide</button>
         </form>
         <div class="form-ok" id="mcbOk">Thank you — your request is noted in this preview. The guide itself is a free preview item; no email has been sent from this page, and nothing you entered was saved. In the live version, the guide and India-Ready Call booking will be delivered to your inbox.</div>
       </div>
@@ -249,9 +304,9 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px
   <div class="wrap">
     <div class="sec-head"><h2>How it works</h2><p>Three simple steps — no packages, no pressure.</p></div>
     <div class="steps">
-      <div class="step"><div class="num">01</div><h3>Tell us your dates + interests</h3><p>Share where you’re going, when, and what you love — food, heritage, mountains, festivals, quiet villages.</p></div>
-      <div class="step"><div class="num">02</div><h3>Meet your local friend</h3><p>We match you with a local host or guide whose city, language and interests fit your trip. Identity verification for hosts and guides is planned before anyone can accept guests — see Trust &amp; Safety below.</p></div>
-      <div class="step"><div class="num">03</div><h3>Explore like a local</h3><p>Eat where families eat, travel the way locals travel, and see the India that lives between the famous sights.</p></div>
+      <div class="step"><span class="step-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span><div class="num">01</div><h3>Tell us your dates + interests</h3><p>Share where you’re going, when, and what you love — food, heritage, mountains, festivals, quiet villages.</p></div>
+      <div class="step"><span class="step-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div class="num">02</div><h3>Meet your local friend</h3><p>We match you with a local host or guide whose city, language and interests fit your trip. Identity verification for hosts and guides is planned before anyone can accept guests — see Trust &amp; Safety below.</p></div>
+      <div class="step"><span class="step-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><div class="num">03</div><h3>Explore like a local</h3><p>Eat where families eat, travel the way locals travel, and see the India that lives between the famous sights.</p></div>
     </div>
   </div>
 </section>
@@ -377,7 +432,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px
       <div class="member-card">
         <div class="price">₹100<small> / month</small></div>
         <p style="color:#C9D6EA;font-size:14px">Proposed Indian membership.<br>International plans will be configurable at launch.</p>
-        <button class="btn btn-saffron" id="joinBtn" style="width:100%">Join the community</button>
+        <button class="btn btn-saffron" id="joinBtn" style="width:100%"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Join the community</button>
         <div class="note" id="joinNote" style="text-align:left;color:var(--ink)">Payments are not live in this Phase 1 preview. Membership will open only when secure payments and verification are ready — nothing is charged here.</div>
       </div>
     </div>
@@ -416,7 +471,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px
       </div>
       <div><h4>Explore</h4><ul><li><a href="#explore">Explore India</a></li><li><a href="#hosts">Find a Local Friend</a></li><li><a href="#tours">Group Tours</a></li><li><a href="#how">How It Works</a></li></ul></div>
       <div><h4>Community</h4><ul><li><a href="#earn">Become a Host / Guide</a></li><li><a href="#community">Community Stories</a></li><li><a href="#membership">Membership</a></li><li><a href="#guide">Free Guide &amp; Call</a></li></ul></div>
-      <div><h4>About</h4><ul><li><a href="#top">About (draft)</a></li><li><a href="#safety">Safety</a></li><li><a href="#top">Contact (draft)</a></li><li><a href="#top">Privacy (draft)</a></li><li><a href="#top">Terms (draft)</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#top">About (draft)</a></li><li><a href="#safety">Safety</a></li><li><a href="#top"><svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#F5B26B"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> Contact (draft)</a></li><li><a href="#top">Privacy (draft)</a></li><li><a href="#top">Terms (draft)</a></li></ul></div>
     </div>
     <div class="legal">
       <p>Independent community initiative. Not affiliated with the Government of India or the Ministry of Tourism.</p>
@@ -483,7 +538,19 @@ function renderHosts(){
   HOSTS.filter(function(h){return (!city||h.city===city)&&(!lang||h.langs.indexOf(lang)>-1)&&(!intr||h.ints.indexOf(intr)>-1)}).forEach(function(h){
     count++;
     var el=document.createElement('article'); el.className='host';
-    el.innerHTML='<span class="sample-label">SAMPLE PROFILE — FORMAT EXAMPLE, NOT A REAL PERSON</span><div class="avatar">'+h.init+'</div><h3>'+h.city+' local</h3><p class="meta">'+h.langs.join(' · ')+'</p><span class="type-badge">'+h.type+'</span><p>'+h.desc+'</p><p class="meta">Interests: '+h.ints.join(', ')+' · Availability: '+h.avail+'</p><button class="btn btn-navy" style="min-height:44px;padding:8px 18px">Send request</button><div class="note">Preview note: requests and verification go live in a later phase. No request was sent and nothing was saved.</div>';
+    var IC_PIN='<svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> ';
+    var IC_GLOBE='<svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> ';
+    var IC_TAG='<svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg> ';
+    var IC_CLOCK='<svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ';
+    var IC_SEND='<svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:inherit"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> ';
+    var IC_LANDMARK='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>';
+    var IC_UTENSILS='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>';
+    var IC_SUNRISE='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="M19.07 10.93l-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>';
+    var IC_MOUNTAIN='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>';
+    var IC_HOME='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>';
+    var IC_COMPASS='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>';
+    var IC_INT={'Heritage':IC_LANDMARK,'Food':IC_UTENSILS,'Spiritual':IC_SUNRISE,'Mountains':IC_MOUNTAIN,'Villages':IC_HOME,'Adventure':IC_COMPASS}[h.ints[0]]||IC_COMPASS;
+    el.innerHTML='<span class="sample-label">SAMPLE PROFILE — FORMAT EXAMPLE, NOT A REAL PERSON</span><div class="host-top"><div class="avatar">'+h.init+'</div><span class="host-ic">'+IC_INT+'</span></div><h3>'+IC_PIN+h.city+' local</h3><p class="meta">'+IC_GLOBE+h.langs.join(' · ')+'</p><span class="type-badge">'+h.type+'</span><p>'+h.desc+'</p><p class="meta">'+IC_TAG+'Interests: '+h.ints.join(', ')+' · '+IC_CLOCK+'Availability: '+h.avail+'</p><button class="btn btn-navy" style="min-height:44px;padding:8px 18px">'+IC_SEND+'Send request</button><div class="note">Preview note: requests and verification go live in a later phase. No request was sent and nothing was saved.</div>';
     el.querySelector('button').addEventListener('click',function(){el.querySelector('.note').classList.add('show')});
     g.appendChild(el);
   });
@@ -495,7 +562,7 @@ renderHosts();
 var tg=document.getElementById('tourGrid');
 TOURS.forEach(function(t){
   var el=document.createElement('article'); el.className='tour';
-  el.innerHTML='<h3>'+t.n+'</h3><div class="facts"><span><b>Dates:</b> '+t.dates+'</span><span><b>Group size:</b> '+t.size+'</span><span><b>Seats:</b> '+t.seats+'</span><span><b>Organiser:</b> '+t.org+'</span><span><b>Includes:</b> '+t.inc+'</span><span><b>Excludes:</b> '+t.exc+'</span></div><button class="btn btn-outline" style="min-height:44px;padding:8px 18px">Join interest</button><div class="note">Preview note: your interest is noted on this page only. No booking was made and nothing was saved — tour registration opens in a later phase.</div>';
+  el.innerHTML='<h3>'+t.n+'</h3><div class="facts"><span><b>Dates:</b> '+t.dates+'</span><span><b>Group size:</b> '+t.size+'</span><span><b>Seats:</b> '+t.seats+'</span><span><b>Organiser:</b> '+t.org+'</span><span><b>Includes:</b> '+t.inc+'</span><span><b>Excludes:</b> '+t.exc+'</span></div><button class="btn btn-outline" style="min-height:44px;padding:8px 18px"><svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:inherit"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Join interest</button><div class="note">Preview note: your interest is noted on this page only. No booking was made and nothing was saved — tour registration opens in a later phase.</div>';
   el.querySelector('button').addEventListener('click',function(){el.querySelector('.note').classList.add('show')});
   tg.appendChild(el);
 });
@@ -512,6 +579,16 @@ document.getElementById('joinBtn').addEventListener('click',function(){document.
 document.getElementById('burger').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.classList.toggle('open');this.setAttribute('aria-expanded',open)});
 document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});
 document.querySelectorAll('.faq-item button').forEach(function(b){b.addEventListener('click',function(){var item=b.parentElement;var was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!was)item.classList.add('open')})});
+
+/* Gentle fade-in on scroll (skipped entirely when reduced motion is preferred) */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  var els=document.querySelectorAll('section:not(.hero), .highlights');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
+  },{threshold:.06});
+  els.forEach(function(el){el.classList.add('reveal');io.observe(el)});
+})();
 </script>
 </body>
 </html>
