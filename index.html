@@ -1,1 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>Incredible India — Discover India Through Its People</title>
+<meta name="description" content="Connect People. Discover India. Experience the World. A community connecting visitors with local hosts and guides across India. Phase 1 preview.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2340; --navy2:#162F57; --saffron:#E67E22; --saffron2:#D96C0A; --green:#1B7A4D; --green-bg:#EAF6EF;
+  --bg:#FFFBF5; --surface:#FFFFFF; --ink:#1A2332; --muted:#5A6577; --line:#E8E0D3; --warm:#F6EFE3;
+  --nav-bg:rgba(255,251,245,.96); --card-shadow:0 10px 30px rgba(15,35,64,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0E1626; --surface:#16233C; --ink:#EFF2F7; --muted:#A9B4C6; --line:#2A3A57; --warm:#1B2B47; --nav-bg:rgba(14,22,38,.96); --green-bg:#143527; --card-shadow:0 10px 30px rgba(0,0,0,.35);}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Public Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.15;margin:0}
+img{max-width:100%;display:block}
+a{color:var(--navy)}
+@media (prefers-color-scheme: dark){a{color:#F0A35E}}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+.sec-head{max-width:720px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(28px,4vw,40px);margin-bottom:10px}
+.sec-head p{color:var(--muted);margin:0;font-size:17px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-saffron{background:var(--saffron);color:#fff}.btn-saffron:hover{background:var(--saffron2)}
+.btn-navy{background:var(--navy);color:#fff}.btn-outline{border-color:var(--navy);color:var(--navy);background:transparent}
+@media (prefers-color-scheme: dark){.btn-outline{border-color:#F0A35E;color:#F0A35E}}
+.btn-ghost{background:var(--surface);border-color:var(--line);color:var(--ink)}
+/* Nav */
+header{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:19px}
+.brand b{font-family:"Fraunces",serif;font-size:19px;display:block;line-height:1.1}
+.brand small{color:var(--muted);font-size:11px;letter-spacing:.04em}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:10px 12px;border-radius:8px;min-height:40px;display:inline-flex;align-items:center}
+.nav-links a:hover{background:var(--warm)}
+.nav-links a.cta{background:var(--saffron);color:#fff}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;font-size:20px;cursor:pointer;color:var(--ink)}
+@media(max-width:900px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);flex-direction:column;align-items:stretch;padding:12px 20px 20px;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.burger{display:block}}
+.preview-strip{background:var(--navy);color:#DCE6F5;text-align:center;font-size:13px;padding:8px 16px}
+.preview-strip b{color:#F5B26B}
+/* Hero */
+.hero{padding:0;position:relative;background:var(--navy);overflow:hidden}
+.hero-img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;opacity:.55}
+.hero-overlay{position:relative;display:flex;align-items:center}
+.hero-content{color:#fff;max-width:680px;padding:76px 0}
+.hero-content .tag{display:inline-block;background:rgba(230,126,34,.9);color:#fff;font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.hero-content h1{font-size:clamp(38px,6vw,62px);margin-bottom:16px}
+.hero-content p{font-size:19px;color:#E7EDF7;margin:0 0 28px;max-width:560px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{margin-top:18px;font-size:13px;color:#C7D3E6}
+@media(max-width:640px){.hero-content{padding:52px 0}}
+/* MCB */
+.mcb{background:var(--navy);color:#EDF2FA}
+.mcb h2{color:#fff}
+.mcb-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
+@media(max-width:860px){.mcb-grid{grid-template-columns:1fr}}
+.mistakes{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px}
+.mistakes li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 16px;display:flex;gap:12px}
+.mistakes .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--saffron);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
+.mistakes b{display:block;color:#fff}
+.mistakes span{color:#B9C7DE;font-size:14px}
+.form-card{background:var(--surface);color:var(--ink);border-radius:18px;padding:26px;box-shadow:var(--card-shadow)}
+.form-card h3{font-size:21px;margin-bottom:6px}
+.form-card p{color:var(--muted);font-size:14px;margin:0 0 16px}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:600;font-size:13px;margin-bottom:5px}
+.field input,.field select{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;font-size:15px}
+.form-ok{display:none;background:var(--green-bg);border:1px solid var(--green);border-radius:12px;padding:14px 16px;font-size:14px}
+.form-ok.show{display:block}
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:800px){.steps{grid-template-columns:1fr}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px}
+.step .num{font-family:"Fraunces",serif;font-size:38px;color:var(--saffron);font-weight:700}
+.step h3{font-size:20px;margin:8px 0}
+.step p{color:var(--muted);margin:0}
+/* Founders */
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.founders{grid-template-columns:1fr}}
+.founder{background:var(--surface);border:1px dashed var(--line);border-width:2px;border-radius:16px;padding:28px;text-align:center}
+.founder .photo{width:110px;height:110px;border-radius:50%;background:var(--warm);margin:0 auto 14px;display:grid;place-items:center;font-family:"Fraunces",serif;font-size:30px;color:var(--navy)}
+@media (prefers-color-scheme: dark){.founder .photo{color:#F0A35E}}
+.founder h3{font-size:21px}
+.founder p{color:var(--muted);font-size:14px}
+/* Filters + cards */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{min-height:40px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:600;font-size:14px;cursor:pointer;font-family:inherit}
+.chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.dest{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.dest img{height:160px;width:100%;object-fit:cover;background:var(--warm)}
+.dest .body{padding:16px}
+.dest h3{font-size:19px;margin-bottom:4px}
+.dest p{color:var(--muted);font-size:14px;margin:0 0 10px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag-sm{font-size:11px;font-weight:700;background:var(--warm);color:var(--navy);padding:3px 9px;border-radius:999px}
+@media (prefers-color-scheme: dark){.tag-sm{color:#F0A35E}}
+/* Hosts */
+.host-filters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+@media(max-width:700px){.host-filters{grid-template-columns:1fr}}
+.host-filters select{min-height:46px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;width:100%}
+.host-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.host{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.sample-label{display:block;text-align:center;background:#FDEBD3;color:#8A4B08;font-size:12px;font-weight:800;letter-spacing:.03em;padding:8px 10px;border:1.5px dashed #B96A12;border-radius:8px;margin-bottom:14px}
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:19px;margin-bottom:12px}
+.host h3{font-size:19px}
+.host .meta{color:var(--muted);font-size:14px;margin:4px 0 10px}
+.type-badge{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--green-bg);color:var(--green);margin-bottom:10px}
+.host p{font-size:14px;color:var(--muted)}
+.note{display:none;margin-top:12px;background:var(--warm);border-radius:10px;padding:10px 12px;font-size:13px}
+.note.show{display:block}
+/* Tours */
+.tour-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.tour{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.tour h3{font-size:20px;margin-bottom:6px}
+.tour .facts{font-size:14px;color:var(--muted);display:grid;gap:4px;margin:12px 0}
+.tour .facts b{color:var(--ink)}
+/* Two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:800px){.two-col{grid-template-columns:1fr}}
+.panel{border-radius:16px;padding:28px}
+.panel.visitor{background:var(--green-bg);border:1px solid var(--green)}
+.panel.earn{background:var(--surface);border:1px solid var(--line)}
+.panel h3{font-size:22px;margin-bottom:12px}
+.panel ul{margin:0;padding-left:20px;color:var(--muted)}
+.panel li{margin-bottom:6px}
+/* Safety */
+.safety-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.safety-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.safety-card h3{font-size:18px;margin-bottom:8px}
+.safety-card p,.safety-card li{color:var(--muted);font-size:14px}
+.safety-card ul{padding-left:18px;margin:0}
+/* Empty state */
+.empty{border:2px dashed var(--line);border-radius:16px;padding:44px 24px;text-align:center;background:var(--surface)}
+.empty h3{font-size:22px;margin-bottom:8px}
+.empty p{color:var(--muted);margin:0 auto;max-width:480px}
+/* Membership */
+.member{background:var(--navy);color:#EDF2FA;border-radius:22px;padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px}
+@media(max-width:820px){.member{grid-template-columns:1fr}}
+.member h2{color:#fff;font-size:clamp(26px,3.5vw,36px);margin-bottom:12px}
+.member ul{padding-left:20px;color:#C9D6EA}
+.price{font-family:"Fraunces",serif;font-size:52px;color:#fff}
+.price small{font-size:18px;color:#C9D6EA;font-family:"Public Sans",sans-serif}
+.member-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:26px;text-align:center}
+/* Future */
+.future-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.future-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.future-item h3{font-size:16px;font-family:"Public Sans",sans-serif;font-weight:700;margin-bottom:6px}
+.future-label{font-size:11px;font-weight:800;color:var(--saffron2);letter-spacing:.03em}
+/* FAQ */
+.faq{max-width:820px}
+.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-item button{width:100%;text-align:left;background:none;border:none;padding:18px 20px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink);display:flex;justify-content:space-between;gap:12px;min-height:52px;align-items:center}
+.faq-a{display:none;padding:0 20px 18px;color:var(--muted);font-size:15px}
+.faq-item.open .faq-a{display:block}
+/* Footer */
+footer{background:var(--navy);color:#C9D6EA;padding:52px 0 32px}
+footer a{color:#EDF2FA;text-decoration:none}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-bottom:32px}
+@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}}
+footer h4{color:#fff;font-family:"Public Sans",sans-serif;font-size:15px;margin:0 0 12px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14px}
+.legal{border-top:1px solid rgba(255,255,255,.15);padding-top:20px;font-size:13px;color:#93A5C2}
+</style>
+</head>
+<body>
+<div class="preview-strip">Phase 1 Preview — this is a design &amp; concept preview. Nothing you enter is saved, and no bookings, payments or messages are live yet.</div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="brand-mark">II</span><span><b>Incredible India</b><small>CONNECT PEOPLE · DISCOVER INDIA</small></span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#explore">Explore India</a>
+      <a href="#hosts">Find a Local Friend</a>
+      <a href="#earn">Become a Host / Guide</a>
+      <a href="#how">How It Works</a>
+      <a href="#community">Community</a>
+      <a href="#guide" class="cta">Join Free</a>
+    </nav>
+  </div>
+</header>
 
+<!-- 1. HERO -->
+<section class="hero" id="top">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1600&q=80" alt="Taj Mahal in Agra at golden hour">
+  <div class="hero-overlay"><div class="wrap"><div class="hero-content">
+    <span class="tag">Connect People. Discover India. Experience the World.</span>
+    <h1>Discover India Through Its People</h1>
+    <p>Connect with local hosts, explore authentic experiences, meet new friends, and discover the incredible diversity of India.</p>
+    <div class="hero-btns">
+      <a class="btn btn-saffron" href="#guide">Get the Free Guide</a>
+      <a class="btn" style="background:#fff;color:var(--navy)" href="#hosts">Find a Local Friend</a>
+    </div>
+    <p class="hero-note">Not a hotel site. Not a travel agency. A community of people who open their cities — and their homes — to each other.</p>
+  </div></div></div>
+</section>
+
+<!-- 2. MCB -->
+<section class="mcb" id="guide">
+  <div class="wrap">
+    <div class="sec-head"><h2>Start free: the guide + a 20-minute India-Ready Call</h2><p style="color:#B9C7DE">Before you book anything, know what actually trips first-time visitors up — and how a local friend quietly prevents all of it.</p></div>
+    <div class="mcb-grid">
+      <div>
+        <h3 style="color:#fff;font-size:22px">Free guide: “7 Mistakes First-Time Visitors Make in India — And How a Local Friend Saves You From All 7”</h3>
+        <ul class="mistakes">
+          <li><span class="n">1</span><div><b>Paying tourist prices for everything</b><span>Without a local, the first price you hear is rarely the real price.</span></div></li>
+          <li><span class="n">2</span><div><b>Trying to see too much, too fast</b><span>India rewards slow travel. Rushed itineraries burn people out.</span></div></li>
+          <li><span class="n">3</span><div><b>Trusting the wrong “helper” at stations &amp; sights</b><span>Unsolicited help often ends in a commission shop, not your destination.</span></div></li>
+          <li><span class="n">4</span><div><b>Eating only where tourists eat</b><span>The best food is usually two lanes away from the famous spot.</span></div></li>
+          <li><span class="n">5</span><div><b>Getting transport wrong</b><span>Wrong train class, wrong platform, wrong auto fare — small errors, big days lost.</span></div></li>
+          <li><span class="n">6</span><div><b>Missing the real India between the monuments</b><span>Families, festivals, villages and home food never make it into package tours.</span></div></li>
+          <li><span class="n">7</span><div><b>Having no one to call when plans break</b><span>A local friend turns a problem into a phone call, not a crisis.</span></div></li>
+        </ul>
+        <p style="color:#B9C7DE;font-size:14px">Also included free: a 20-minute <b style="color:#fff">India-Ready Call</b> and a free itinerary check — tell us your route, we flag what to fix before you travel.</p>
+      </div>
+      <div class="form-card">
+        <h3>Get the free guide</h3>
+        <p>Fill this in and we’ll note your request. This is a Phase 1 preview form.</p>
+        <form id="mcbForm">
+          <div class="field"><label for="fName">Your name</label><input id="fName" required autocomplete="name" placeholder="Your full name"></div>
+          <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+          <div class="field"><label for="fCountry">Country</label><input id="fCountry" required placeholder="e.g. Germany, USA, India…"></div>
+          <div class="field"><label for="fMonth">Travel month</label>
+            <select id="fMonth" required><option value="">Choose a month…</option><option>December 2026</option><option>January 2027</option><option>February 2027</option><option>March 2027</option><option>Later / not sure yet</option></select></div>
+          <div class="field"><label for="fInterest">What interests you most?</label>
+            <select id="fInterest" required><option value="">Choose one…</option><option>Heritage &amp; history</option><option>Food</option><option>Mountains &amp; nature</option><option>Spiritual places</option><option>Villages &amp; family life</option><option>Adventure</option></select></div>
+          <button class="btn btn-saffron" type="submit" style="width:100%">Send me the free guide</button>
+        </form>
+        <div class="form-ok" id="mcbOk">Thank you — your request is noted in this preview. The guide itself is a free preview item; no email has been sent from this page, and nothing you entered was saved. In the live version, the guide and India-Ready Call booking will be delivered to your inbox.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head"><h2>How it works</h2><p>Three simple steps — no packages, no pressure.</p></div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Tell us your dates + interests</h3><p>Share where you’re going, when, and what you love — food, heritage, mountains, festivals, quiet villages.</p></div>
+      <div class="step"><div class="num">02</div><h3>Meet your local friend</h3><p>We match you with a local host or guide whose city, language and interests fit your trip. Identity verification for hosts and guides is planned before anyone can accept guests — see Trust &amp; Safety below.</p></div>
+      <div class="step"><div class="num">03</div><h3>Explore like a local</h3><p>Eat where families eat, travel the way locals travel, and see the India that lives between the famous sights.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. WHO WE ARE -->
+<section style="background:var(--warm)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Who we are — and how we started</h2><p>Incredible India is being built by two founders who believe people understand each other best when they actually meet.</p></div>
+    <div class="founders">
+      <div class="founder"><div class="photo">PS</div><h3>Pankaj Saxena</h3><p>Co-founder</p><p><i>Founders’ story to be added by Pankaj and Varinder — their photo and words will appear here, in their own voice.</i></p></div>
+      <div class="founder"><div class="photo">V</div><h3>Varinder</h3><p>Co-founder</p><p><i>Founders’ story to be added by Pankaj and Varinder — their photo and words will appear here, in their own voice.</i></p></div>
+    </div>
+  </div>
+</section>
+<!-- 5. EXPLORE INDIA -->
+<section id="explore">
+  <div class="wrap">
+    <div class="sec-head"><h2>Explore India</h2><p>Famous places — and the hidden ones a local friend will show you. Filter by what you love.</p></div>
+    <div class="filters" id="destFilters">
+      <button class="chip active" data-f="all">All</button>
+      <button class="chip" data-f="Heritage">Heritage</button>
+      <button class="chip" data-f="Food">Food</button>
+      <button class="chip" data-f="Mountains">Mountains</button>
+      <button class="chip" data-f="Spiritual">Spiritual</button>
+      <button class="chip" data-f="Villages">Villages</button>
+      <button class="chip" data-f="Adventure">Adventure</button>
+    </div>
+    <div class="dest-grid" id="destGrid"></div>
+  </div>
+</section>
+
+<!-- 6. HOSTS / GUIDES -->
+<section id="hosts" style="background:var(--warm)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Find a local host or guide</h2><p>This is a <b>showcase of the profile format only</b>. These are sample profiles — not real people. Real, verified hosts and guides join in a later phase.</p></div>
+    <div class="host-filters">
+      <select id="hfCity"><option value="">All cities</option><option>Delhi</option><option>Jaipur</option><option>Amritsar</option><option>Kochi</option><option>Manali</option><option>Varanasi</option></select>
+      <select id="hfLang"><option value="">All languages</option><option>English</option><option>Hindi</option><option>Punjabi</option><option>Malayalam</option><option>French</option><option>German</option></select>
+      <select id="hfInterest"><option value="">All interests</option><option>Heritage</option><option>Food</option><option>Mountains</option><option>Spiritual</option><option>Villages</option><option>Adventure</option></select>
+    </div>
+    <div class="host-grid" id="hostGrid"></div>
+    <p id="hostEmpty" style="display:none;color:var(--muted)">No sample profiles match that combination — try widening a filter.</p>
+  </div>
+</section>
+
+<!-- 7. GROUP TOURS -->
+<section id="tours">
+  <div class="wrap">
+    <div class="sec-head"><h2>Group tours — coming together</h2><p>Small groups, led by community organisers and local experts. Dates below are indicative for the preview; registering interest is free and non-binding.</p></div>
+    <div class="tour-grid" id="tourGrid"></div>
+  </div>
+</section>
+
+<!-- 8. CULTURAL EXCHANGE + EARN -->
+<section id="earn" style="background:var(--warm)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Cultural exchange — and earning with us</h2><p>Two sides of the same table: visitors who want real India, and Indians whose city knowledge deserves respect — and income.</p></div>
+    <div class="two-col">
+      <div class="panel visitor">
+        <h3>For visitors: live India, don’t just see it</h3>
+        <ul>
+          <li><b>Homestay with a family</b> — stay where life actually happens</li>
+          <li><b>Food at home</b> — regional dishes no restaurant menu carries</li>
+          <li><b>Festivals from inside</b> — celebrate with a family, not from a balcony</li>
+          <li><b>Language exchange</b> — teach your language, pick up Hindi and local words</li>
+        </ul>
+      </div>
+      <div class="panel earn">
+        <h3>For Indians &amp; students: your city is your strength</h3>
+        <ul>
+          <li><b>Become a host</b> — welcome visitors the way your family welcomes guests</li>
+          <li><b>Become a student guide</b> — turn your weekends and city knowledge into earnings</li>
+          <li><b>Earn from what you already know</b> — your lanes, your food spots, your stories</li>
+          <li><b>Build a reputation</b> — a trusted local expert, not a tout</li>
+        </ul>
+        <p style="color:var(--muted);font-size:14px;margin:14px 0 0">Host and guide registration opens in a later phase, after verification is live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. TRUST & SAFETY -->
+<section id="safety">
+  <div class="wrap">
+    <div class="sec-head"><h2>Trust &amp; safety — how it will work</h2><p>Trust is the foundation. Here is exactly how verification and safety will work when the community opens — nothing here is live yet, and there are no verification badges in this preview.</p></div>
+    <div class="safety-grid">
+      <div class="safety-card"><h3>Verification (planned)</h3><ul><li>Email verification for every member</li><li>Mobile number verification</li><li>Identity check before hosting or guiding</li><li>Separate host / guide checks before anyone can accept guests</li></ul></div>
+      <div class="safety-card"><h3>What we will NEVER ask for publicly</h3><ul><li>No Aadhaar numbers in public</li><li>No passport numbers in public</li><li>No identity documents posted or shared openly</li><li>Documents, when needed, go only through a secure verification step — never on a profile</li></ul></div>
+      <div class="safety-card"><h3>Report &amp; block</h3><p>Every profile and conversation will carry report and block options. Reported members are reviewed by the community team, and repeat or serious reports lead to removal.</p></div>
+      <div class="safety-card"><h3>Complaints</h3><p>A clear complaint path with acknowledgement and a defined response window. Safety complaints are prioritised over everything else.</p></div>
+      <div class="safety-card"><h3>Emergency support</h3><p>Members will get India emergency information in one place — police 112, women’s helpline 1091, tourist helpline 1800-11-1363 — plus guidance to contact local authorities first in any real emergency.</p></div>
+      <div class="safety-card"><h3>Meet smart</h3><p>First meetings in public places, itineraries shared with family, and no advance payments outside the platform once payments launch.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. COMMUNITY STORIES -->
+<section id="community" style="background:var(--warm)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Community stories</h2></div>
+    <div class="empty">
+      <h3>Founding stories coming soon</h3>
+      <p>Real stories from real members will appear here with their permission. We don’t publish invented stories, quotes or testimonials — when this section fills up, every word in it will be real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. MEMBERSHIP -->
+<section id="membership">
+  <div class="wrap">
+    <div class="member">
+      <div>
+        <h2>Membership — after you’ve seen the value</h2>
+        <p style="color:#C9D6EA">Start free with the guide and the India-Ready Call. Membership is for when you’re ready to connect, host and travel with the community.</p>
+        <ul>
+          <li>Connect with hosts and local guides across India</li>
+          <li>Send and receive hosting &amp; companionship requests</li>
+          <li>Join group tours and community meetups</li>
+          <li>Member support and safety tools</li>
+          <li>Renews monthly · Cancel anytime — no lock-in</li>
+        </ul>
+      </div>
+      <div class="member-card">
+        <div class="price">₹100<small> / month</small></div>
+        <p style="color:#C9D6EA;font-size:14px">Proposed Indian membership.<br>International plans will be configurable at launch.</p>
+        <button class="btn btn-saffron" id="joinBtn" style="width:100%">Join the community</button>
+        <div class="note" id="joinNote" style="text-align:left;color:var(--ink)">Payments are not live in this Phase 1 preview. Membership will open only when secure payments and verification are ready — nothing is charged here.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. FUTURE -->
+<section style="background:var(--warm)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Together we can create more opportunities</h2><p>When a community of lakhs of members stands together, collective services become possible. These are the long-term vision — honestly labelled.</p></div>
+    <div class="future-grid" id="futureGrid"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Questions, answered honestly</h2></div>
+    <div class="faq" id="faq">
+      <div class="faq-item"><button>Is it safe to stay with a host I met online? <span>+</span></button><div class="faq-a">Safety is why verification comes before hosting. In the live version, hosts and guides pass identity and profile checks before accepting guests, first meetings are encouraged in public places, and report/block tools are built in. In this preview, no real hosting is happening yet.</div></div>
+      <div class="faq-item"><button>What’s the difference between hosting, companionship and a paid service? <span>+</span></button><div class="faq-a">Free Hospitality means a host welcomes you without charge, the Couchsurfing way. Local Companionship means a local spends time showing you their city, also without a service fee. Paid Service is transparent and declared upfront — for example a professional guide’s charges. Every profile will state clearly which one it is.</div></div>
+      <div class="faq-item"><button>How do payments work? <span>+</span></button><div class="faq-a">They don’t — yet. Payments are not live in this Phase 1 preview. When membership and paid services launch, payments will run through recognised Indian and international payment providers, with receipts and cancellation terms shown before you pay.</div></div>
+      <div class="faq-item"><button>Can you help with my India visa? <span>+</span></button><div class="faq-a">We can share general, publicly available information about India’s e-Visa process and official links, and a local friend can help you plan around your dates. We are not a visa agent and cannot apply for, guarantee or expedite any visa — always apply through the official Government of India visa website.</div></div>
+      <div class="faq-item"><button>I’m a student. How do I earn as a guide? <span>+</span></button><div class="faq-a">When guide registration opens (after verification is live), you’ll create a guide profile with your city, languages and interests, complete the guide check, and set your availability. Visitors then request walks and experiences through the platform.</div></div>
+      <div class="faq-item"><button>Is Incredible India a government website? <span>+</span></button><div class="faq-a">No. This is an independent community initiative by its founders. It is not affiliated with the Government of India or the Ministry of Tourism.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Incredible India</h4>
+        <p style="font-size:14px;margin:0;max-width:300px">Connect People. Discover India. Experience the World. A community connecting visitors, hosts, students and local guides across India.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="#explore">Explore India</a></li><li><a href="#hosts">Find a Local Friend</a></li><li><a href="#tours">Group Tours</a></li><li><a href="#how">How It Works</a></li></ul></div>
+      <div><h4>Community</h4><ul><li><a href="#earn">Become a Host / Guide</a></li><li><a href="#community">Community Stories</a></li><li><a href="#membership">Membership</a></li><li><a href="#guide">Free Guide &amp; Call</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#top">About (draft)</a></li><li><a href="#safety">Safety</a></li><li><a href="#top">Contact (draft)</a></li><li><a href="#top">Privacy (draft)</a></li><li><a href="#top">Terms (draft)</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <p>Independent community initiative. Not affiliated with the Government of India or the Ministry of Tourism.</p>
+      <p>Phase 1 preview — content, policies and plans shown here are drafts for review and may change before launch.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var U="?auto=format&fit=crop&w=800&q=80";
+var DESTS=[
+ {n:"Delhi",d:"Old Delhi’s lanes, Mughal tombs and the food capital’s breakfast trails.",img:"https://images.unsplash.com/photo-1587474260584-136574528ed5"+U,t:["Heritage","Food"]},
+ {n:"Rajasthan",d:"Forts, desert towns and royal cities — Jaipur, Jodhpur, Udaipur, Jaisalmer.",img:"https://images.unsplash.com/photo-1477587458883-47145ed94245"+U,t:["Heritage","Adventure"]},
+ {n:"Punjab",d:"The Golden Temple’s langar, Amritsar’s food streets and border-village warmth.",img:"https://images.unsplash.com/photo-1514222134-b57cbb8ce073"+U,t:["Spiritual","Food"]},
+ {n:"Sikkim",d:"Monasteries, Kanchenjunga views and some of India’s calmest mountain towns.",img:"https://images.unsplash.com/photo-1544735716-392fe2489ffa"+U,t:["Mountains","Spiritual"]},
+ {n:"Ladakh",d:"High passes, Pangong’s blue and villages above 3,000 metres.",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4"+U,t:["Mountains","Adventure"]},
+ {n:"Kashmir",d:"Dal Lake shikaras, houseboats and valleys that slow you down.",img:"https://images.unsplash.com/photo-1508672019048-805c876b67e2"+U,t:["Mountains","Villages"]},
+ {n:"Kerala",d:"Backwaters, houseboats, home food and green that never ends.",img:"https://images.unsplash.com/photo-1593693397690-362cb9666fc2"+U,t:["Villages","Food"]},
+ {n:"Karnataka",d:"Bengaluru to Hampi — tech city energy meets a stone-carved empire.",img:"https://images.unsplash.com/photo-1589308078059-be1415eab4c3"+U,t:["Heritage","Food"]},
+ {n:"Himachal Pradesh",d:"Manali, Spiti and Dharamshala — mountains, monasteries and slow roads.",img:"https://images.unsplash.com/photo-1626621341517-bbf3d9990a23"+U,t:["Mountains","Adventure"]},
+ {n:"Uttarakhand",d:"Rishikesh, the Char Dham route and Himalayan foothill towns.",img:"https://images.unsplash.com/photo-1583089892943-e02e5b017b6a"+U,t:["Spiritual","Mountains"]},
+ {n:"Northeast India",d:"Living root bridges, hill cultures and India’s least-explored corner.",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e"+U,t:["Adventure","Villages"]},
+ {n:"Maharashtra",d:"Mumbai’s local trains and street food, Pune, and the Sahyadri forts.",img:"https://images.unsplash.com/photo-1570168007204-dfb528c6958f"+U,t:["Food","Heritage"]},
+ {n:"Goa",d:"Beyond the beaches — Portuguese-era villages, bakeries and slow susegad life.",img:"https://images.unsplash.com/photo-1512343879784-a960bf40e7f2"+U,t:["Villages","Food"]},
+ {n:"Uttar Pradesh",d:"The Taj Mahal, Varanasi’s ghats and Lucknow’s legendary kitchens.",img:"https://images.unsplash.com/photo-1561361513-2d000a50f0dc"+U,t:["Heritage","Spiritual"]},
+ {n:"Hidden Places",d:"The waterfall only locals know, the village festival, the unmarked viewpoint — shown to you by a friend, not a brochure.",img:"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05"+U,t:["Adventure","Villages"]}
+];
+var HOSTS=[
+ {init:"AS",city:"Delhi",langs:["English","Hindi"],ints:["Heritage","Food"],type:"Free Hospitality",avail:"Weekends",desc:"Format example: an Old Delhi resident who hosts travellers and loves Chandni Chowk food walks."},
+ {init:"GK",city:"Jaipur",langs:["English","Hindi","French"],ints:["Heritage"],type:"Local Companionship",avail:"Evenings",desc:"Format example: a Jaipur local who shows visitors the old city beyond the main bazaars."},
+ {init:"HS",city:"Amritsar",langs:["English","Punjabi","Hindi"],ints:["Spiritual","Food"],type:"Free Hospitality",avail:"Most days",desc:"Format example: an Amritsar host near the Golden Temple who joins guests for langar."},
+ {init:"MJ",city:"Kochi",langs:["English","Malayalam"],ints:["Food","Villages"],type:"Paid Service",avail:"By request",desc:"Format example: a Kochi guide offering declared-price backwater and food experiences."},
+ {init:"RT",city:"Manali",langs:["English","Hindi"],ints:["Mountains","Adventure"],type:"Local Companionship",avail:"May–October",desc:"Format example: a Manali local who accompanies visitors on valley walks and village visits."},
+ {init:"VP",city:"Varanasi",langs:["English","Hindi","German"],ints:["Spiritual","Heritage"],type:"Paid Service",avail:"Mornings",desc:"Format example: a Varanasi guide offering declared-price sunrise ghat walks."}
+];
+var TOURS=[
+ {n:"Himalayan Trek — Himachal",dates:"Indicative: May & September batches",size:"10–14 people",seats:"Interest list open",org:"Community organiser",inc:"Local guide, group logistics, stays",exc:"Travel to base town, personal gear, insurance"},
+ {n:"Ladakh Adventure",dates:"Indicative: June–August",size:"8–12 people",seats:"Interest list open",org:"Local tour organiser",inc:"Route planning, stays, support vehicle",exc:"Flights, permits where applicable, insurance"},
+ {n:"Sikkim Slow Journey",dates:"Indicative: March–April & October",size:"8–10 people",seats:"Interest list open",org:"Community organiser",inc:"Monastery visits, local stays, guide",exc:"Travel to Gangtok, personal expenses"},
+ {n:"Rajasthan Heritage Trail",dates:"Indicative: November–February",size:"12–16 people",seats:"Interest list open",org:"Local tour organiser",inc:"Heritage walks, stays, intercity transfers",exc:"Monument entry fees, meals unless stated"},
+ {n:"Village Tourism — Kerala",dates:"Indicative: Year-round, small batches",size:"6–10 people",seats:"Interest list open",org:"Host community",inc:"Family stays, home food, village activities",exc:"Travel to the village, personal expenses"},
+ {n:"Spiritual Journey — Varanasi & UP",dates:"Indicative: November–March",size:"10–14 people",seats:"Interest list open",org:"Community organiser",inc:"Guided ghat walks, boat sunrise, stays",exc:"Travel to Varanasi, offerings & personal expenses"}
+];
+var FUTURE=["Group Health Insurance","Mediclaim","Travel Insurance","Affordable Technology","Education","Employment","Business Partnerships","Investment Opportunities"];
+
+function renderDests(f){
+  var g=document.getElementById('destGrid'); g.innerHTML='';
+  DESTS.filter(function(d){return f==='all'||d.t.indexOf(f)>-1}).forEach(function(d){
+    var el=document.createElement('article'); el.className='dest';
+    el.innerHTML='<img loading="lazy" src="'+d.img+'" alt="'+d.n+', India" onerror="this.style.display=\'none\'"><div class="body"><h3>'+d.n+'</h3><p>'+d.d+'</p><div class="tags">'+d.t.map(function(t){return '<span class="tag-sm">'+t+'</span>'}).join('')+'</div></div>';
+    g.appendChild(el);
+  });
+}
+document.getElementById('destFilters').addEventListener('click',function(e){
+  if(e.target.tagName!=='BUTTON')return;
+  this.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active')});
+  e.target.classList.add('active'); renderDests(e.target.getAttribute('data-f'));
+});
+renderDests('all');
+
+function renderHosts(){
+  var city=document.getElementById('hfCity').value, lang=document.getElementById('hfLang').value, intr=document.getElementById('hfInterest').value;
+  var g=document.getElementById('hostGrid'); g.innerHTML=''; var count=0;
+  HOSTS.filter(function(h){return (!city||h.city===city)&&(!lang||h.langs.indexOf(lang)>-1)&&(!intr||h.ints.indexOf(intr)>-1)}).forEach(function(h){
+    count++;
+    var el=document.createElement('article'); el.className='host';
+    el.innerHTML='<span class="sample-label">SAMPLE PROFILE — FORMAT EXAMPLE, NOT A REAL PERSON</span><div class="avatar">'+h.init+'</div><h3>'+h.city+' local</h3><p class="meta">'+h.langs.join(' · ')+'</p><span class="type-badge">'+h.type+'</span><p>'+h.desc+'</p><p class="meta">Interests: '+h.ints.join(', ')+' · Availability: '+h.avail+'</p><button class="btn btn-navy" style="min-height:44px;padding:8px 18px">Send request</button><div class="note">Preview note: requests and verification go live in a later phase. No request was sent and nothing was saved.</div>';
+    el.querySelector('button').addEventListener('click',function(){el.querySelector('.note').classList.add('show')});
+    g.appendChild(el);
+  });
+  document.getElementById('hostEmpty').style.display=count?'none':'block';
+}
+['hfCity','hfLang','hfInterest'].forEach(function(id){document.getElementById(id).addEventListener('change',renderHosts)});
+renderHosts();
+
+var tg=document.getElementById('tourGrid');
+TOURS.forEach(function(t){
+  var el=document.createElement('article'); el.className='tour';
+  el.innerHTML='<h3>'+t.n+'</h3><div class="facts"><span><b>Dates:</b> '+t.dates+'</span><span><b>Group size:</b> '+t.size+'</span><span><b>Seats:</b> '+t.seats+'</span><span><b>Organiser:</b> '+t.org+'</span><span><b>Includes:</b> '+t.inc+'</span><span><b>Excludes:</b> '+t.exc+'</span></div><button class="btn btn-outline" style="min-height:44px;padding:8px 18px">Join interest</button><div class="note">Preview note: your interest is noted on this page only. No booking was made and nothing was saved — tour registration opens in a later phase.</div>';
+  el.querySelector('button').addEventListener('click',function(){el.querySelector('.note').classList.add('show')});
+  tg.appendChild(el);
+});
+
+var fg=document.getElementById('futureGrid');
+FUTURE.forEach(function(f){
+  var el=document.createElement('div'); el.className='future-item';
+  el.innerHTML='<h3>'+f+'</h3><span class="future-label">FUTURE INITIATIVE — NOT AVAILABLE YET</span>';
+  fg.appendChild(el);
+});
+
+document.getElementById('mcbForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('mcbOk').classList.add('show');document.getElementById('mcbOk').scrollIntoView({behavior:'smooth',block:'center'})});
+document.getElementById('joinBtn').addEventListener('click',function(){document.getElementById('joinNote').classList.add('show')});
+document.getElementById('burger').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.classList.toggle('open');this.setAttribute('aria-expanded',open)});
+document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});
+document.querySelectorAll('.faq-item button').forEach(function(b){b.addEventListener('click',function(){var item=b.parentElement;var was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!was)item.classList.add('open')})});
+</script>
+</body>
+</html>
